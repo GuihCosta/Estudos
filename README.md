@@ -1,1 +1,2 @@
-# Repositório voltado aos meus estudos particulares e elaborações de projetos
+# Repositório de Estudos
+Criado para exibir minha evolução como desenvolvedor e apresentar projetos elaborados 
