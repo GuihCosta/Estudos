@@ -1,0 +1,60 @@
+Alguns comandos do Git Bash:
+
+git init -cria um arquivo .git no repositório
+
+Git clone "git clone <https://link-com-o-nome-do-repositório>"- Isso fará uma cópia do projeto no seu espaço de trabalho local para que você possa começar a trabalhar nessa cópia.
+
+Git branch "git branch <nome-da-branch>" Esse comando criará uma branch em seu local de trabalho. Para fazer o push (algo como enviar) da nova branch para o repositório remoto, você precisa usar o comando a seguir:
+"git push -u <local-remoto> <nome-da-branch>"
+Como ver as branches:
+"git branch ou git branch --list"
+Como excluir uma branch:
+git branch -d <nome-da-branch>
+
+Git checkout
+Esse também é um dos comandos do Git mais usados. 
+Para trabalhar em uma branch, primeiro, é preciso "entrar" nela. Usamos git checkout, na maioria dos casos, para trocar de uma branch para outra. Também podemos usar o comando para fazer o checkout de arquivos e commits.
+"git checkout <nome-da-branch>"
+Existem alguns passos que você precisa seguir para trocar de branch com sucesso:
+1 As alterações em sua branch atual devem estar em um commit ou em um stash antes de você fazer a troca
+2 A branch na qual você quer fazer o checkout deve existir no seu espaço de trabalho local
+Também existe um comando de atalho que permite criar e automaticamente trocar para a branch criada ao mesmo tempo:
+"git checkout -b <nome-da-branch>"
+
+Git status
+O comando git status nos dá todas as informações necessárias sobre a branch atual.
+"git status"
+Obtemos as seguintes informações:
+1 Se a branch em que estamos no momento está atualizada
+2 Se precisamos fazer o commit, push ou pull de algo
+3 Se os arquivos estão em fase de stage, fora dessa fase ou se não estão sendo rastreados
+4 Se arquivos foram criados, modificados ou excluídos
+
+Git commit
+Talvez esse seja o comando mais usado do Git.
+Quando chegamos a determinado ponto em desenvolvimento, queremos salvar nossas alterações (talvez após uma tarefa ou resolução de problema específica).
+Git commit é como definir um ponto de verificação no processo de desenvolvimento. Você pode voltar a esse ponto mais tarde, se necessário.
+Também precisamos escrever uma mensagem breve para explicar o que desenvolvemos ou alteramos no código-fonte.
+"git commit -m "mensagem do commit""
+Importante: git commit salva suas alterações no espaço de trabalho local.
+
+Git push
+Após fazer o commit de suas alterações, a próxima coisa a fazer é enviar suas alterações ao servidor remoto. 
+Git push faz o upload dos seus commits no repositório remoto.
+"git push <repositório-remoto> <nome-da-branch>"
+Entretanto, se a sua branch foi recém-criada, também é preciso fazer o upload da branch com o seguinte comando:
+"git push -u origin <nome-da-branch>"
+
+Git pull
+O comando git pull é usado para obter as atualizações de um repositório remoto. 
+Esse comando é uma combinação de git fetch e git merge, o que significa que, quando usamos git pull, ele recebe as atualizações do repositório remoto (git fetch) e aplica imediatamente as alterações mais recentes em seu espaço de trabalho local (git merge).
+"git pull <repositório-remoto>"
+Essa operação pode causar conflitos que você precisará resolver manualmente.
+
+Git revert
+Às vezes, precisamos desfazer as alterações que fizemos.
+Existem várias maneiras de se desfazer as alterações em nosso espaço de trabalho local ou remotamente (dependendo do que você necessita), mas devemos usar esses comandos com cuidado para evitar exclusões indesejadas.
+Uma maneira segura de desfazer nossos commits é usando git revert. Para ver nosso histórico de commits, primeiro, precisamos usar "git log -- oneline":
+Em seguida, precisamos apenas especificar o código hash ao lado do commit que desejamos desfazer:
+"git revert 3321844"
+
